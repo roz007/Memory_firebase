@@ -1,13 +1,11 @@
 import json
-
-"""         DOC STRING
- Program takes a JSON input and gives its equivalent memory representation in bytes"""
-
+'''         DOC STRING
+ Program takes a JSON input and gives its equivalent memory representation in bytes'''
 
 def dict_fun(obj):
-    """ DOC STRING
+    ''' 
     This function is used to calculate the total size taken up by the dictionary elements
-    """
+    '''
     dict_memory_sum = 0
     dict_key_sum = 0
 
@@ -33,9 +31,9 @@ def dict_fun(obj):
 
 
 def list_fun(obj):
-    """ DOC STRING
+    ''' DOC STRING
     This function is used to calculate the total size taken up by the LIST elements
-    """
+    '''
     list_memory_sum = 0
     for item in obj:
         # print(item)
@@ -49,9 +47,9 @@ def list_fun(obj):
 
 
 def norm_fun(obj):
-    """ DOC STRING
+    ''' DOC STRING
     This function is used to calculate the total size taken up by all the other elements
-    """
+    '''
     if type(obj) == int or type(obj) == float:
         # print(obj)
         return 8
