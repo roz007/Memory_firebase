@@ -6,10 +6,10 @@ def dict_fun(obj):
     ''' 
     This function is used to calculate the total size taken up by the dictionary elements
     '''
-    dict_memory_sum = 0
-    dict_key_sum = 0
+    dict_memory_sum = 0 #calculates the total memory used by fields in a dictionary
+    dict_key_sum = 0 #calulates the total memory used by keys in a dictionary
 
-    dict_key_values_list = obj.keys()
+    dict_key_values_list = obj.keys()#extracts the keys from the dictionary and stores them in a list
     # print(dict_key_values_list)
 
     for items in dict_key_values_list:
@@ -27,6 +27,7 @@ def dict_fun(obj):
             dict_memory_sum = dict_memory_sum + norm_fun(obj[items])
 
     dict_key_sum = dict_memory_sum + list_fun(dict_key_values_list)
+    #Total sum of space is the sum of field values and keys from the dictionary
     return dict_key_sum
 
 
@@ -34,7 +35,7 @@ def list_fun(obj):
     ''' DOC STRING
     This function is used to calculate the total size taken up by the LIST elements
     '''
-    list_memory_sum = 0
+    list_memory_sum = 0#used to calculate total memory occupied by list elements
     for item in obj:
         # print(item)
         if type(item) != dict:
@@ -74,9 +75,9 @@ def norm_fun(obj):
 # data= '{"finance":{"error":{"code":"Unauthorized","description":"Invalid cookie"}},"category": "Household", "crawl_date": "20180726", "subcategory": false, "title": "Seventh Generation- 30 ct", "mrp": 7.5, "urlh": "1ef0f41e", "http_status": "200","ItemModList":[0,375,668,5,6], "pack_size":"med" , "available_price": 5}'
 DATA = '{"molde": [1,2,"hi"],"drogo": 12,"sai": false, "finance":{"error":{"code":"Unauthorized","description":"Invalid cookie"}}}'
 
-PER_DICT = json.loads(DATA)
+PER_DICT = json.loads(DATA)#stores the json into a dictionary
 
-KEY_VAL = PER_DICT.keys()
+KEY_VAL = PER_DICT.keys()#is a list containing keys of the dictionary
 BYTES = 0
 
 for item in KEY_VAL:
