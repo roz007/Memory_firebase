@@ -44,17 +44,21 @@ def norm_fun(obj):
     elif type(obj) == str:
         return len(obj) + 1
 
-    elif type(obj) == bool or type(obj) == "null":
+    elif type(obj) == bool:
         return 1
 
     elif type(obj) == list:
         return list_fun(obj)
-    else:
+    elif type(obj) == dict:
         return dict_fun(obj)
+    
+    else:
+        # for null values
+        return 1
 
 
 if __name__ == "__main__":
     # data= '{"finance":{"error":{"code":"Unauthorized","description":"Invalid cookie"}},"category": "Household", "crawl_date": "20180726", "subcategory": false, "title": "Seventh Generation- 30 ct", "mrp": 7.5, "urlh": "1ef0f41e", "http_status": "200","ItemModList":[0,375,668,5,6], "pack_size":"med" , "available_price": 5}'
-    JSON_DATA = '{"molde": [1,2,"hi"],"drogo": 12,"sai": false, "finance":{"error":{"code":"Unauthorized","description":"Invalid cookie"}}}'
+    JSON_DATA = '{"molde": [1,2,"hi"],"drogo": 12,"sai":null , "finance":{"error":{"code":"Unauthorized","description":"Invalid cookie"}}}'
     DICT_DATA = json.loads(JSON_DATA)  # stores the json into a dictionary
     print(dict_fun(DICT_DATA))
